@@ -1,0 +1,32 @@
+[
+  {
+    "descripcion": "Centro Recreativo Turquino (Hotel Habana Libre)",
+    "direccion": "Hotel Habana Libre, La Habana, Cuba",
+    "latitud": 23.1395146,
+    "longitud": -82.3825415
+  },
+  {
+    "descripcion": "Comercio Calzada y L",
+    "direccion": "Calzada y L, Vedado, La Habana, Cuba",
+    "latitud": 23.1440689,
+    "longitud": -82.3925119
+  },
+  {
+    "descripcion": "Casa Mimbre (mercados chinos)",
+    "direccion": "Casa Mimbre, Centro Habana, Cuba",
+    "latitud": 23.1182236,
+    "longitud": -82.3691253
+  },
+  {
+    "descripcion": "Restaurante Al Campestre",
+    "direccion": "Micro IV, Alamar, Habana del Este, La Habana, Cuba",
+    "latitud": 23.1537598,
+    "longitud": -82.2656913
+  },
+  {
+    "descripcion": "Cafetería de Vivian (Vieja Linda)",
+    "direccion": "Vieja Linda, Arroyo Naranjo, La Habana, Cuba",
+    "latitud": 23.0545388,
+    "longitud": -82.3708624
+  }
+]

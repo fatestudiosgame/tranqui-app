@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "970982760113",
+    "project_id": "tranqui-app-b95a0",
+    "storage_bucket": "tranqui-app-b95a0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970982760113:android:34dbe831afbbe32c7f0c90",
+        "android_client_info": {
+          "package_name": "com.fatestudiosgame.tranqui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHxoTOdTc1CxGo2R0-dt3dNtA8zaiqGpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:970982760113:android:422e86fcb09e79497f0c90",
+        "android_client_info": {
+          "package_name": "com.fatestudiosgame.tranqui"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHxoTOdTc1CxGo2R0-dt3dNtA8zaiqGpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -44,8 +44,13 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-#Archivos sensibles de Firebase (NUNCA subir a GitHub)
+# Archivos sensibles de Firebase (NUNCA subir a GitHub)
 android/app/google-services.json
 firebase.json
 ios/Runner/GoogleService-Info.plist
 macos/Runner/GoogleService-Info.plist
+
+# ⭐ Archivos de firma (NUNCA subir a GitHub)
+android/key.properties
+**/*.jks
+**/*.keystore

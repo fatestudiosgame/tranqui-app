@@ -1,7 +1,7 @@
 name: tranqui
 description: "Mapa colaborativo para negocios que aceptan transferencias en Cuba"
 publish_to: 'none'
-version: 1.0.0+2
+version: 1.0.8+9
 
 environment:
   sdk: ^3.5.0
@@ -39,11 +39,43 @@ dependencies:
   # Preferencias compartidas
   shared_preferences: ^2.2.3
 
-  # ⭐ Versión de la app (para update)
+  # Versión de la app (para update)
   package_info_plus: ^10.2.1
 
-  # ⭐ Detección de arquitectura (para update)
+  # APKLIS PAGO (desde GitHub, NO está en pub.dev)
+  apklis_license_validator:
+    git:
+      url: https://github.com/z17-cuba/apklis_license_validator.git
+      ref: main
+
+  # Detección de arquitectura (para update)
   device_info_plus: ^13.2.0
+
+  # Caché de tiles del mapa
+  flutter_map_cache: ^1.5.0
+  dio_cache_interceptor: ^3.5.0
+  dio_cache_interceptor_hive_store: ^3.2.2
+  dio: ^5.4.0
+
+  # ⭐ Compartición
+  share_plus: ^13.3.0
+
+  # ⭐ Deep links
+  app_links: ^6.3.2
+
+  # ⭐ URLs limpias en web
+  url_strategy: ^0.3.0
+
+  # ⭐ NUEVO: Fotos (selector de galería/cámara)
+  image_picker: ^1.1.2
+
+  # ⭐ NUEVO: Compresión de imágenes a 250 KB
+  flutter_image_compress: ^2.3.0
+
+  # ⭐ NOTIFICACIONES PUSH (Firebase)
+  firebase_core: ^3.8.0
+  firebase_messaging: ^15.1.6
+  flutter_local_notifications: ^18.0.1
 
 dev_dependencies:
   flutter_test:

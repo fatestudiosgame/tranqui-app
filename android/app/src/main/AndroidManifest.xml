@@ -1,18 +1,63 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Permisos -->
+    <!-- Permisos de ubicación -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
+    <!-- Permisos de red -->
     <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- Permisos de llamadas -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
-    <!-- Necesario para que url_launcher pueda detectar navegadores en Android 11+ -->
+    <!-- ⭐ Permisos para image_picker (galería + cámara) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+
+    <!-- ⭐ NOTIFICACIONES: Permiso para mostrar notificaciones (Android 13+ / API 33+) -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    
+    <!-- ⭐ NOTIFICACIONES: Necesario para que FCM mantenga el servicio activo -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- ⭐ NOTIFICACIONES: Vibración al recibir push -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- Queries para detectar apps/intents en Android 11+ -->
     <queries>
+        <!-- Para abrir enlaces https (url_launcher) -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
         </intent>
+        <!-- Para abrir enlaces http (url_launcher) -->
         <intent>
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="http" />
+        </intent>
+        <!-- Para abrir la app de teléfono -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="tel" />
+        </intent>
+        <!-- Para abrir WhatsApp -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="whatsapp" />
+        </intent>
+
+        <!-- APKLIS: Detectar la app de Apklis instalada -->
+        <package android:name="cu.uci.android.apklis" />
+
+        <!-- APKLIS: Autenticación de cuentas -->
+        <intent>
+            <action android:name="android.accounts.AccountAuthenticator" />
+        </intent>
+
+        <!-- APKLIS: Scheme apklis para deep links de pago -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="apklis" />
         </intent>
     </queries>
 
@@ -22,6 +67,28 @@
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config">
+        
+        <!-- Deshabilitar Impeller para mejor rendimiento en gama baja -->
+        <meta-data
+            android:name="io.flutter.embedding.android.EnableImpeller"
+            android:value="false" />
+        
+        <!-- ⭐ NOTIFICACIONES: Canal por defecto para notificaciones push de FCM -->
+        <!-- Sin esto, las notificaciones no se muestran en Android 8+ (API 26+) -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="tranqui_anuncios" />
+        
+        <!-- ⭐ NOTIFICACIONES: Icono por defecto (usa el ícono de la app) -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        
+        <!-- ⭐ NOTIFICACIONES: Color de acento por defecto (naranja Tranqui) -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/primary_color" />
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -34,11 +101,36 @@
             <meta-data
                 android:name="io.flutter.embedding.android.NormalTheme"
                 android:resource="@style/NormalTheme" />
+            
+            <!-- Intent filter normal (launcher) -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <!-- ⭐ Intent filter para deep links -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tranqui" android:host="negocio" />
+            </intent-filter>
+            
+            <!-- ⭐ Intent filter para deep links de páginas VIP -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="tranqui" android:host="p" />
+            </intent-filter>
+            
+            <!-- ⭐ NOTIFICACIONES: Intent filter para recibir mensajes FCM -->
+            <intent-filter>
+                <action android:name="FLUTTER_NOTIFICATION_CLICK" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
+        
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
